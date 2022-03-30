@@ -4,4 +4,7 @@ A simple pac man visualization exercise. Watch pacman bounce all over the screen
 
 In the future I need to fix an issue where pacman temporarily glitches out when bouncing to move left on the horizontal axis.
 
+<img src="pacman.png" width="300"/>
+
+
 <a href="https://vegan-morpheus.github.io/">My Portfolio</a>
