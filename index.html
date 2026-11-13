@@ -1,12 +1,6 @@
 <!DOCTYPE html>
 <html>
 <script>
-    var pos = 0;
-    const pacArray = [
-        ['./images/pacman1.png', './images/pacman2.png'],
-        ['./images/pacman3.png', './images/pacman4.png']
-    ];
-    var direction = 0;
     const pacMen = [];
     let started = false;
 
@@ -25,7 +19,7 @@
         let game = document.getElementById('game');
         let newimg = document.createElement('img');
         newimg.style.position = 'absolute';
-        newimg.src = './images/pacman1.png', './images/pacman2.png', './images/pacman3.png', './images/pacman4.png';
+        newimg.src = './images/pacman1.png';
         newimg.width = 100;
         newimg.style.left = position.x + 'px';
         newimg.style.top = position.y + 'px';
@@ -111,11 +105,11 @@
 
 <body>
     <div>
-        <h1 style=" text-align: center; color: rgb(9, 3, 97);">Complex PacMan Execise</h1>
+        <h1 style=" text-align: center; color: rgb(9, 3, 97);">Complex PacMan Exercise</h1>
     </div>
-    <div id='game' style="color: cornflowerblue;">
-        <button onclick='makeOne()' width='200' height='30'>Add PacMan</button>
-        <button onclick='startGame()' width='200' height='30'>Start Game</button>              
+    <div id='game'>
+        <button onclick='makeOne()'>Add PacMan</button>
+        <button onclick='startGame()'>Start Game</button>              
     </div>    
 </body>
 
