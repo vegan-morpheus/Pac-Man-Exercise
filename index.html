@@ -72,18 +72,18 @@
 
         if (item.position.x + width >= window.innerWidth) {
             if (item.newimg.src.indexOf("pacman1.png") != -1) {
-                item.newimg.src = "./img/pacman4.png";
+                item.newimg.src = "./images/pacman4.png";
             }
             if (item.newimg.src.indexOf("pacman2.png") != -1) {
-                item.newimg.src = "./img/pacman3.png";
+                item.newimg.src = "./images/pacman3.png";
             }
             item.velocity.x = -item.velocity.x;
         } else if (item.position.x <= 0) {
             if (item.newimg.src.indexOf("pacman3.png") != -1) {
-                item.newimg.src = "./img/pacman2.png";
+                item.newimg.src = "./images/pacman2.png";
             }
             if (item.newimg.src.indexOf("pacman4.png") != -1) {
-                item.newimg.src = "./img/pacman1.png";
+                item.newimg.src = "./images/pacman1.png";
             }
             item.velocity.x = item.velocity.x * -1;
         }
