@@ -16,6 +16,9 @@ The code is split into `index.html` (the page), `style.css` (the look) and `pacm
 - [Version 1, fixed](https://github.com/vegan-morpheus/Pac-Man-Exercise/tree/04ec02c): the original with that glitch and a few other bugs fixed.
 - Version 2: this one.
 
+### Practice
+[PRACTICE.md](PRACTICE.md) turns every fix and improvement into an exercise, starting from the bootcamp original, with each commit as the answer.
+
 <img src="pacman.png" width="300"/>
 
 
