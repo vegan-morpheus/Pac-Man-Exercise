@@ -2,7 +2,7 @@
 ## Pac-Man Exercise
 A simple pac man visualization exercise. Watch pacman bounce all over the screen. Click to add more pac mans. Add as many pac mans as you want.
 
-In the future I need to fix an issue where pacman temporarily glitches out when bouncing to move left on the horizontal axis.
+The glitch where pacman temporarily disappeared when bouncing off a side wall is fixed: the bounce code pointed at an `img/` folder, but the pictures live in `images/`. The original bootcamp version is preserved [here](https://github.com/vegan-morpheus/Pac-Man-Exercise/tree/cd0850455389eca32c755f06b212bcad4b650cf8).
 
 <img src="pacman.png" width="300"/>
 
