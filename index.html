@@ -8,6 +8,7 @@
     ];
     var direction = 0;
     const pacMen = [];
+    let started = false;
 
     function setToRandom(scale) {
         return {
@@ -98,7 +99,14 @@
 
     function makeOne() {
         pacMen.push(makePac()); // add a new PacMan
-    } 
+    }
+
+    function startGame() {
+        if (started) return; // already running, so don't start a second loop
+        started = true;
+        update();
+        update_mouth();
+    }
 </script>
 
 <body>
@@ -107,7 +115,7 @@
     </div>
     <div id='game' style="color: cornflowerblue;">
         <button onclick='makeOne()' width='200' height='30'>Add PacMan</button>
-        <button onclick='update(), update_mouth()' width='200' height='30'>Start Game</button>              
+        <button onclick='startGame()' width='200' height='30'>Start Game</button>              
     </div>    
 </body>
 
