@@ -3,6 +3,21 @@ h1 {
     color: rgb(9, 3, 97);
 }
 
+.controls {
+    margin-bottom: 8px;
+}
+
+/* The game box. position: relative makes it the reference point for the
+   Pac-Men's left and top, and overflow: hidden clips anything that pokes
+   past an edge. */
+#game {
+    position: relative;
+    height: 70vh;
+    border: 2px solid rgb(9, 3, 97);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
 /* Every Pac-Man is a 100 × 100 box. object-fit: contain scales each
    picture to fit inside it without stretching, so pacman1.png (which is
    narrower than the others) no longer comes out taller. */
