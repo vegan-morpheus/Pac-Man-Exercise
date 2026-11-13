@@ -1,3 +1,12 @@
+// The four pictures as a lookup table: pacArray[direction][mouth]
+//   direction 0 = facing right, 1 = facing left
+//   mouth     0 = open,         1 = closed
+const pacArray = [
+    ['./images/pacman1.png', './images/pacman2.png'],
+    ['./images/pacman3.png', './images/pacman4.png']
+];
+const SIZE = 100; // every Pac-Man is drawn 100 × 100 pixels (see .pac in style.css)
+
 const pacMen = [];
 let started = false;
 
@@ -14,9 +23,9 @@ function makePac() {
 
     let game = document.getElementById('game');
     let newimg = document.createElement('img');
-    newimg.style.position = 'absolute';
-    newimg.src = './images/pacman1.png';
-    newimg.width = 100;
+    newimg.className = 'pac';
+    newimg.alt = '';
+    newimg.src = pacArray[0][0];
     newimg.style.left = position.x + 'px';
     newimg.style.top = position.y + 'px';
     game.appendChild(newimg);
@@ -24,8 +33,15 @@ function makePac() {
     return {
         position,
         velocity,
-        newimg
+        newimg,
+        direction: 0, // facing right
+        mouth: 0      // open
     }
+}
+
+// Show the picture that matches this Pac-Man's direction and mouth.
+function setPicture(item) {
+    item.newimg.src = pacArray[item.direction][item.mouth];
 }
 
 function update() {
@@ -42,40 +58,25 @@ function update() {
 
 function update_mouth() {
     pacMen.forEach((item) => {
-        if (item.newimg.src.indexOf("pacman1.png") != -1) {
-            item.newimg.src = "./images/pacman2.png";
-        } else if (item.newimg.src.indexOf("pacman2.png") != -1) {
-            item.newimg.src = "./images/pacman1.png";
-        } else if (item.newimg.src.indexOf("pacman3.png") != -1) {
-            item.newimg.src = "./images/pacman4.png";
-        } else if (item.newimg.src.indexOf("pacman4.png") != -1) {
-            item.newimg.src = "./images/pacman3.png";
-        }
+        item.mouth = 1 - item.mouth; // 0 → 1 → 0 → 1 …
+        setPicture(item);
     });
 
     setTimeout(update_mouth, 200);
 }
 
 function checkCollisions(item) {
-    let width = item.newimg.width;
-    let height = item.newimg.height;
+    let width = SIZE;
+    let height = SIZE;
 
     if (item.position.x + width >= window.innerWidth) {
-        if (item.newimg.src.indexOf("pacman1.png") != -1) {
-            item.newimg.src = "./images/pacman4.png";
-        }
-        if (item.newimg.src.indexOf("pacman2.png") != -1) {
-            item.newimg.src = "./images/pacman3.png";
-        }
         item.velocity.x = -item.velocity.x;
+        item.direction = 1; // now facing left
+        setPicture(item);
     } else if (item.position.x <= 0) {
-        if (item.newimg.src.indexOf("pacman3.png") != -1) {
-            item.newimg.src = "./images/pacman2.png";
-        }
-        if (item.newimg.src.indexOf("pacman4.png") != -1) {
-            item.newimg.src = "./images/pacman1.png";
-        }
         item.velocity.x = item.velocity.x * -1;
+        item.direction = 0; // now facing right
+        setPicture(item);
     }
 
     if (item.position.y + height >= window.innerHeight) {
